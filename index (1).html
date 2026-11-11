@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لجنة الزكاة بولاية بهلا</title>
+<meta name="description" content="لجنة الزكاة بولاية بهلا، سلطنة عُمان: تعريف بالزكاة، فيديو توعوي، واختبار تفاعلي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0e3b30; --green-2:#165244; --gold:#b8892b; --gold-soft:#e3c981;
+  --stone:#eaeee8; --paper:#f7f8f5; --ink:#14201c; --muted:#4d5d56; --line:#cfd8d1;
+  --right:#1f7a4d; --wrong:#a8392b;
+  --head:'Reem Kufi','Segoe UI',Tahoma,sans-serif;
+  --body:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--stone);color:var(--ink);line-height:1.9;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* الواجهة */
+.hero{background:var(--green);color:#fff;position:relative;overflow:hidden;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'><g fill='none' stroke='%23e3c981' stroke-opacity='.16' stroke-width='1.2'><rect x='25' y='25' width='40' height='40'/><rect x='25' y='25' width='40' height='40' transform='rotate(45 45 45)'/></g></svg>")}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--gold)}
+.nav{display:flex;align-items:center;gap:14px;padding:22px 0}
+.nav img{width:64px;height:64px;border-radius:50%;background:#fff;padding:4px;border:2px solid var(--gold);object-fit:contain}
+.nav b{font-family:var(--head);font-size:1.15rem;font-weight:500;color:var(--gold-soft)}
+.nav small{display:block;color:#c5d4cd;font-size:.85rem;line-height:1.4}
+.hero-body{padding:56px 0 90px;max-width:760px}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(2.1rem,6vw,3.8rem);line-height:1.35}
+.hero p{margin-top:18px;color:#d6e2dc;font-size:1.15rem;max-width:58ch}
+.hero .actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;border:0;cursor:pointer;font:600 1rem var(--body);padding:12px 26px;border-radius:6px}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#a07a22}
+.btn-line{border:2px solid var(--gold-soft);color:var(--gold-soft)}
+.btn-line:hover{background:rgba(227,201,129,.12)}
+
+/* الأقسام */
+section{padding:56px 0}
+section h2{font-family:var(--head);font-weight:700;font-size:1.8rem;color:var(--green);margin-bottom:8px}
+section .lead{color:var(--muted);max-width:62ch;margin-bottom:26px}
+.about{background:var(--paper);border-bottom:1px solid var(--line)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:26px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.pillars div{padding:22px;border-inline-start:1px solid var(--line)}
+.pillars div:first-child{border-inline-start:0}
+.pillars h3{font-family:var(--head);color:var(--green);font-size:1.15rem;margin-bottom:4px}
+.pillars p{color:var(--muted);font-size:.97rem;line-height:1.8}
+
+.video{background:var(--ink);border-radius:8px;overflow:hidden}
+.video video{width:100%;max-height:520px;display:block}
+.note{color:var(--muted);padding:40px 20px;text-align:center;display:none}
+
+/* الاختبار */
+.quiz{background:var(--green);color:#fff}
+.quiz h2{color:var(--gold-soft)}
+.quiz .lead{color:#c5d4cd}
+.panel{background:var(--paper);color:var(--ink);border-radius:10px;padding:28px;max-width:760px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.92rem}
+.q{font-family:var(--head);font-size:1.45rem;color:var(--green);margin:20px 0;min-height:3.2em;line-height:1.6}
+.opts{display:grid;gap:10px}
+.opt{text-align:start;background:#fff;border:2px solid var(--line);border-radius:8px;padding:13px 16px;font:500 1.02rem var(--body);cursor:pointer;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--green)}
+.opt.right{background:#e3f3ea;border-color:var(--right)}
+.opt.wrong{background:#f7e4e1;border-color:var(--wrong)}
+.opt:disabled{cursor:default}
+.feedback{min-height:1.9em;margin-top:14px;font-weight:600}
+.feedback.ok{color:var(--right)} .feedback.no{color:var(--wrong)}
+.result{text-align:center;padding:10px 0}
+.result strong{display:block;font-family:var(--head);font-size:3rem;color:var(--green)}
+
+/* اللجان */
+.search{width:100%;max-width:420px;padding:12px 14px;border:2px solid var(--line);border-radius:8px;font:1rem var(--body);margin-bottom:22px;background:#fff}
+.committees{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.com{background:#fff;border:1px solid var(--line);border-inline-start:5px solid var(--gold);border-radius:8px;padding:18px}
+.com.main{border-inline-start-color:var(--green);background:var(--paper)}
+.com h3{font-family:var(--head);color:var(--green);font-size:1.1rem;margin-bottom:6px}
+.com p{color:var(--muted);font-size:.95rem;line-height:1.7}
+.com a{color:var(--green);font-weight:600}
+.empty{color:var(--muted)}
+
+footer{background:var(--green);color:#c5d4cd;text-align:center;padding:26px 20px;font-size:.95rem}
+footer b{color:var(--gold-soft);font-weight:500}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .pillars div{border-inline-start:0;border-top:1px solid var(--line)}
+  .pillars div:first-child{border-top:0}
+  .panel{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="nav">
+      <img id="logo" src="logo.png" alt="شعار لجنة الزكاة">
+      <div><b id="siteName">لجنة الزكاة بولاية بهلا</b><small id="siteSub">سلطنة عُمان — وزارة الأوقاف والشؤون الدينية</small></div>
+    </div>
+    <div class="hero-body">
+      <h1 id="heroTitle">الزكاة تطهّر المال، وتبني مجتمعًا متراحمًا</h1>
+      <p id="heroText">نجمع زكاة الأموال ونوصلها إلى مستحقيها في ولاية بهلا، ونعرّف بفقه الزكاة وأحكامها.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#quiz">ابدأ الاختبار</a>
+        <a class="btn btn-line" href="#committees">تواصل مع اللجان</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="about">
+    <div class="wrap">
+      <h2>عن اللجنة</h2>
+      <p class="lead" id="aboutText">لجنة الزكاة بولاية بهلا تعمل تحت إشراف وزارة الأوقاف والشؤون الدينية، وتجمع زكاة الأموال وتوزعها على الفقراء والمساكين والغارمين وسائر المصارف الشرعية، وتنشر ثقافة الزكاة في المجتمع.</p>
+      <div class="pillars">
+        <div><h3>نجمع</h3><p>نستقبل زكاة الأموال بأمانة وفق الأحكام الشرعية.</p></div>
+        <div><h3>نوزّع</h3><p>نوصلها إلى مستحقيها بعد دراسة حالاتهم.</p></div>
+        <div><h3>نوعّي</h3><p>نشرح الأحكام للناس بلغة واضحة وأمثلة قريبة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>فيديو تعريفي عن أهمية الزكاة</h2>
+      <p class="lead">دقيقة واحدة تلخّص معنى الزكاة وأثرها.</p>
+      <div class="video">
+        <video id="mainVideo" controls preload="metadata"></video>
+        <div class="note" id="videoNote">لم يُرفع الفيديو بعد.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz" id="quiz">
+    <div class="wrap">
+      <h2>اختبر معلوماتك عن الزكاة</h2>
+      <p class="lead">أسئلة قصيرة، وبعد كل إجابة تظهر الإجابة الصحيحة.</p>
+      <div class="panel" id="quizPanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="committees">
+    <div class="wrap">
+      <h2>لجان الزكاة في السلطنة</h2>
+      <p class="lead">اللجان التابعة لوزارة الأوقاف والشؤون الدينية في الولايات.</p>
+      <input class="search" id="search" type="search" placeholder="ابحث باسم اللجنة أو الولاية" aria-label="بحث في اللجان">
+      <div class="committees" id="committeeList"></div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> <b id="footName">لجنة الزكاة بولاية بهلا</b> — سلطنة عُمان</footer>
+
+<script>
+/* بيانات احتياطية تُستخدم إذا تعذّر تحميل data.json (مثلًا عند فتح الملف مباشرة من الجهاز) */
+const FALLBACK = {
+  siteName:"لجنة الزكاة بولاية بهلا",
+  subtitle:"سلطنة عُمان — وزارة الأوقاف والشؤون الدينية",
+  logo:"logo.png", video:"video.mp4",
+  committees:[
+    {name:"لجنة الزكاة بولاية بهلا",wilaya:"بهلا",phone:""},
+    {name:"لجنة الزكاة بولاية نزوى",wilaya:"نزوى",phone:""},
+    {name:"لجنة الزكاة بولاية صحار",wilaya:"صحار",phone:""},
+    {name:"لجنة الزكاة بولاية صلالة",wilaya:"صلالة",phone:""},
+    {name:"لجنة الزكاة بولاية مسقط",wilaya:"مسقط",phone:""},
+    {name:"لجنة الزكاة بولاية صور",wilaya:"صور",phone:""}
+  ],
+  questions:[
+    {q:"ما مقدار نصاب الزكاة في الذهب؟",opts:["20 جرامًا","85 جرامًا","200 جرام","50 جرامًا"],correct:1},
+    {q:"كم نسبة الزكاة الواجبة في النقود؟",opts:["5%","10%","2.5%","15%"],correct:2},
+    {q:"كم عدد مصارف الزكاة المذكورة في القرآن الكريم؟",opts:["6","8","10","4"],correct:1},
+    {q:"ما هو حول الزكاة؟",opts:["شهر","سنة هجرية","سنة ميلادية","ستة أشهر"],correct:1},
+    {q:"من المستحقون للزكاة؟",opts:["الأغنياء","الفقراء والمساكين","التجار فقط","الموظفون"],correct:1}
+  ]
+};
+
+const $ = id => document.getElementById(id);
+let DATA = FALLBACK;
+
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text !== undefined) e.textContent = text;
+  return e;
+}
+
+async function init(){
+  try{
+    const r = await fetch('data.json', {cache:'no-store'});
+    if(r.ok) DATA = Object.assign({}, FALLBACK, await r.json());
+  }catch(e){ /* نستخدم البيانات الاحتياطية */ }
+  applySite();
+  renderCommittees('');
+  startQuiz();
+  $('year').textContent = new Date().getFullYear();
+  $('search').addEventListener('input', e => renderCommittees(e.target.value));
+}
+
+function applySite(){
+  $('siteName').textContent = DATA.siteName;
+  $('footName').textContent = DATA.siteName;
+  document.title = DATA.siteName;
+  if(DATA.subtitle) $('siteSub').textContent = DATA.subtitle;
+
+  const logo = $('logo');
+  logo.onerror = () => {
+    logo.onerror = null;
+    logo.src = "data:image/svg+xml;utf8," + encodeURIComponent(
+      "<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' fill='#0e3b30'/><g fill='none' stroke='#e3c981' stroke-width='3'><rect x='16' y='16' width='32' height='32'/><rect x='16' y='16' width='32' height='32' transform='rotate(45 32 32)'/></g></svg>");
+  };
+  logo.src = DATA.logo || 'logo.png';
+
+  const v = $('mainVideo');
+  v.addEventListener('error', () => { v.style.display='none'; $('videoNote').style.display='block'; }, true);
+  v.src = DATA.video || 'video.mp4';
+}
+
+/* اللجان */
+function renderCommittees(filter){
+  const box = $('committeeList');
+  box.replaceChildren();
+  const f = (filter || '').trim();
+  const list = DATA.committees.filter(c => !f || (c.name + ' ' + c.wilaya).includes(f));
+  if(!list.length){ box.appendChild(el('p','empty','لا توجد لجان مطابقة.')); return; }
+  list.forEach(c => {
+    const d = el('div', 'com' + (c.wilaya === 'بهلا' ? ' main' : ''));
+    d.appendChild(el('h3', '', c.name));
+    d.appendChild(el('p', '', 'الولاية: ' + c.wilaya));
+    const p = el('p');
+    if(c.phone && /^[0-9+\s]+$/.test(c.phone)){
+      p.append('الهاتف: ');
+      const a = el('a', '', c.phone);
+      a.href = 'tel:' + c.phone.replace(/\s/g, '');
+      a.dir = 'ltr';
+      p.appendChild(a);
+    } else if(c.phone){ p.textContent = 'للتواصل: ' + c.phone; }
+    else p.textContent = 'رقم التواصل غير متوفر حاليًا';
+    d.appendChild(p);
+    box.appendChild(d);
+  });
+}
+
+/* الاختبار */
+let order = [], idx = 0, score = 0, locked = false;
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function startQuiz(){
+  order = shuffle(DATA.questions.map((_, i) => i));
+  idx = 0; score = 0;
+  showQuestion();
+}
+
+function showQuestion(){
+  const panel = $('quizPanel');
+  panel.replaceChildren();
+  if(idx >= order.length){
+    const r = el('div','result');
+    r.appendChild(el('strong','', score + ' / ' + order.length));
+    r.appendChild(el('p','', score === order.length ? 'ممتاز! أجبت عن كل الأسئلة إجابة صحيحة.' : score >= order.length/2 ? 'أحسنت! يمكنك إعادة المحاولة للوصول إلى العلامة الكاملة.' : 'حاول مرة أخرى، وستتحسن نتيجتك.'));
+    const b = el('button','btn btn-gold','أعد الاختبار');
+    b.style.marginTop = '16px';
+    b.onclick = startQuiz;
+    r.appendChild(b);
+    panel.appendChild(r);
+    return;
+  }
+  const item = DATA.questions[order[idx]];
+  const bar = el('div','bar'); const fill = el('i'); fill.style.width = (idx/order.length*100)+'%'; bar.appendChild(fill);
+  const meta = el('div','meta');
+  meta.appendChild(el('span','','السؤال ' + (idx+1) + ' من ' + order.length));
+  meta.appendChild(el('span','','النقاط: ' + score));
+  panel.append(bar, meta, el('div','q', item.q));
+
+  const opts = el('div','opts');
+  const fb = el('div','feedback');
+  locked = false;
+  const mixed = shuffle(item.opts.map((t, i) => ({t, ok: i === item.correct})));
+  mixed.forEach(o => {
+    const b = el('button','opt', o.t);
+    b.onclick = () => {
+      if(locked) return; locked = true;
+      opts.querySelectorAll('button').forEach((x, k) => { x.disabled = true; if(mixed[k].ok) x.classList.add('right'); });
+      if(o.ok){ score++; fb.textContent = 'إجابة صحيحة'; fb.className = 'feedback ok'; }
+      else { b.classList.add('wrong'); fb.textContent = 'إجابة غير صحيحة، والصحيحة ظاهرة بالأخضر'; fb.className = 'feedback no'; }
+      const n = el('button','btn btn-gold', idx+1 < order.length ? 'السؤال التالي' : 'اعرض النتيجة');
+      n.style.marginTop = '14px';
+      n.onclick = () => { idx++; showQuestion(); };
+      panel.appendChild(n);
+      n.focus();
+    };
+    opts.appendChild(b);
+  });
+  panel.append(opts, fb);
+}
+
+init();
+</script>
+</body>
+</html>
